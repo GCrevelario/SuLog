@@ -1,0 +1,41 @@
+<div class="dashboard">
+    <div class="title-container">
+        <h2>Dashboard</h2>
+        <a href="/pontos/add" class="btn">Criar pontos</a>
+    </div>
+    <h3>Seus pontos</h3>
+    <ul>
+        {{#each pontos}}
+        <li>
+            <span class="label">{{this.titulo}}</span>
+            <span class="actions">
+                <a href="/" class="btn">Editar</a>
+                <form action="/">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" value="Excluir" class="btn">
+                </form>
+            </span>
+        </li>
+        {{/each}}
+        <li>
+            <span class="label">Teste</span>
+            <span class="actions">
+                <a href="/" class="btn">Editar</a>
+                <form action="/">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" value="Excluir" class="btn">
+                </form>
+            </span>
+        </li>
+    </ul>
+    <li>
+            <span class="label">Teste</span>
+            <span class="actions">
+                <a href="/" class="btn">Editar</a>
+                <form action="/">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" value="Excluir" class="btn">
+                </form>
+            </span>
+        </li>
+</div>
