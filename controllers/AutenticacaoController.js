@@ -18,5 +18,8 @@ module.exports = class AutenticacaoController{
 
             return
         }
+        else{
+            res.render('pontos/dashboard');
+        }
     }
 }
