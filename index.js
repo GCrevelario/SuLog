@@ -7,18 +7,15 @@ const req = require('express/lib/request');
 const res = require('express/lib/response');
 
 const app = express()
-app.listen(3000)
 
-const suRoutes = require('./routes/suRoutes');
-const AutenticacaoRoutes = require('./routes/AutenticacaoRoutes');
+const conn = require('./db/conn')
 
+const pontos = require('./models/pontos');
 
-const SuController = require('./controllers/SuController');
+const Usuario = require('./models/usuario');
 
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
-
-
 
 app.use(
     express.urlencoded({
@@ -58,6 +55,25 @@ app.use((req, res, next) =>{
 
     next()
 })
+
+conn
+    .sync()
+    .then(() =>{
+        app.listen(3000)
+    })
+    .catch((err) => console.log(err))
+
+
+//Models
+
+
+
+const suRoutes = require('./routes/suRoutes');
+const AutenticacaoRoutes = require('./routes/AutenticacaoRoutes');
+
+
+const SuController = require('./controllers/SuController');
+
 
 app.use('/pontos', suRoutes)
 app.use('/', AutenticacaoRoutes)
