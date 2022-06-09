@@ -39,7 +39,7 @@ module.exports = class AutenticacaoController{
     }
 
     static async registrarpost(req, res){
-        const { nome, email, senha, confirmasenha } = req.body
+        const { name, email, senha, confirmasenha } = req.body
 
         if(senha != confirmasenha){
             req.flash('message', 'Senhas não conferem, tente novamente')
@@ -60,7 +60,7 @@ module.exports = class AutenticacaoController{
         const hashedSenha = bcrypt.hashSync(senha, salt)
 
         const user = {
-            nome,
+            name,
             email,
             senha: hashedSenha
         }

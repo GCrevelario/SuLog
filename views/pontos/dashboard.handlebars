@@ -5,37 +5,20 @@
     </div>
     <h3>Seus pontos</h3>
     <ul>
-        {{#each pontos}}
+        {{#each Pontos}}
         <li>
-            <span class="label">{{this.titulo}}</span>
+            <span class="label">{{this.title}}</span>
             <span class="actions">
-                <a href="/" class="btn">Editar</a>
-                <form action="/">
+                <a href="/pontos/edit/{{this.id}}" class="btn">Editar</a>
+                <form action="/pontos/remove" method="post">
                     <input type="hidden" name="id" value="{{this.id}}">
                     <input type="submit" value="Excluir" class="btn">
                 </form>
             </span>
         </li>
         {{/each}}
-        <li>
-            <span class="label">Teste</span>
-            <span class="actions">
-                <a href="/" class="btn">Editar</a>
-                <form action="/">
-                    <input type="hidden" name="id" value="{{this.id}}">
-                    <input type="submit" value="Excluir" class="btn">
-                </form>
-            </span>
-        </li>
     </ul>
-    <li>
-            <span class="label">Teste</span>
-            <span class="actions">
-                <a href="/" class="btn">Editar</a>
-                <form action="/">
-                    <input type="hidden" name="id" value="{{this.id}}">
-                    <input type="submit" value="Excluir" class="btn">
-                </form>
-            </span>
-        </li>
+    {{#if pontosVazios}}
+        <p>Ainda não há nenhum ponto criado, <a href="/pontos/add">crie aqui</a></p>
+    {{/if}}
 </div>

@@ -1,0 +1,12 @@
+<div class="pontos-form-container">
+    <a href="/pontos/dashboard">Voltar</a>
+    <h1>Editando um Ponto:</h1>
+    <form action="/pontos/edit" method="post">
+    <input type="hidden" name="id" value="{{ponto.id}}">
+    <div class="form-control">
+        <label for="titulo">Ponto:</label>
+        <input type="text" name="titulo" placeholder="Digite o ponto abordado..." value="{{ponto.title}}">
+    </div>
+    <input type="submit" value="Editar ponto">
+    </form>
+</div>
